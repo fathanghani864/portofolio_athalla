@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Computer Engineering</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- Animated data lines + dots -->
+  <div class="data-line"></div>
+  <div class="data-line"></div>
+  <div class="data-line"></div>
+  <div class="data-line"></div>
+
+  <div class="data-dot"></div>
+  <div class="data-dot"></div>
+  <div class="data-dot"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Halo saya Athallah <br><span class="typing" id="typing"></span></h2>
+    <p>Membangun jaringan & mengamankan sistem jaringan.</p>
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="#contact" class="btn btn-outline">Contact Me</a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h3>About Me</h3>
+    <div class="about-content">
+      <img src="image copy.png" alt="Networking Photo">
+      <p>
+        Saya Athallah Rafif. Siswa SMK Informatika Pesat, kelas XI jurusan Teknik Komputer dan Jaringan.  
+        Passion dalam dunia jaringan komputer, konfigurasi router, server, dan simulasi sistem menggunakan software Cisco Packet Tracer dan GNS3.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h3>Keahlian</h3>
+    <div class="skills-grid">
+      <div class="skill">
+        <h4>Hardware</h4>
+        <p>Mikrotik</p>
+      </div>
+      <div class="skill">
+        <h4>Networking</h4>
+        <p>Cisco, GNS3, Routing & Switching</p>
+      </div>
+      <div class="skill">
+        <h4>Web Dev</h4>
+        <p>HTML & CSS</p>
+      </div>
+      <div class="skill">
+        <h4>Tools</h4>
+        <p>Linux, Debian</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+<section id="projects">
+  <h3>Projects</h3>
+  <div class="projects-grid">
+
+    <div class="card">
+  <h4>Modul Routing Static</h4>
+  <p>
+    Mengkonfigurasi perangkat menggunakan software Cisco Packet Tracer dengan metode Routing Statis.
+  </p>
+  <a href="https://medium.com/@athall1.xpro/routing-statis-1c01b70c7da7" 
+     target="_blank" 
+     style="color:#38bdf8; text-decoration:underline; display:block; margin-top:10px; text-align:center;">
+     Lihat artikel Routing Statis
+  </a>
+</div>
+
+
+    <div class="card">
+  <h4>Modul Routing Dynamic (RIP)</h4>
+  <p>Mengkonfigurasi perangkat router menggunakan software Cisco Packet Tracer 
+    dengan metode routing dinamis RIPv2.</p>
+  <a href="https://medium.com/@athall1.xpro/routing-dinamis-ripv2-e67ae3eb7dfe" 
+     target="_blank" 
+     style="color:#38bdf8; text-decoration:underline; display:block; margin-top:10px; text-align:center;">
+     Lihat artikel Routing Dinamis RIPv2
+  </a>
+</div>
+
+
+    <div class="card">
+      <h4>My Articles & Portfolio</h4>
+      <p>Kumpulan modul & proyek saya bisa dilihat di Medium:</p>
+      <a href="https://medium.com/@athall1.xpro" 
+         target="_blank" 
+         style="color:#38bdf8; text-decoration:underline;">
+         medium.com/@athall1.xpro
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact">
+  <h3>Hubungi saya</h3>
+  <div class="contact-icons">
+    <a href="mailto:athall1.xpro@gmail.com" title="Email"><i data-lucide="mail"></i></a>
+    <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp"><i data-lucide="message-circle"></i></a>
+    <a href="https://github.com/athall1-xpro" target="_blank" title="GitHub"><i data-lucide="github"></i></a>
+    <a href="https://www.linkedin.com/in/athall1-xpro/" target="_blank" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+    <a href="https://x.com/athall1_xpro" target="_blank" title="Twitter/X"><i data-lucide="twitter"></i></a>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Athall | My Portfolio
+  </footer>
+
+  <!-- Typing Loop JS -->
+  <script>
+    const words = ["Computer Engineer", "Network Engineer"];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+    const typingElement = document.getElementById("typing");
+
+    function type() {
+      currentWord = words[i];
+      if (isDeleting) {
+        typingElement.textContent = currentWord.substring(0, j--);
+        if (j < 0) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+          setTimeout(type, 500);
+        } else {
+          setTimeout(type, 60);
+        }
+      } else {
+        typingElement.textContent = currentWord.substring(0, j++);
+        if (j > currentWord.length) {
+          isDeleting = true;
+          setTimeout(type, 1200);
+        } else {
+          setTimeout(type, 100);
+        }
+      }
+    }
+    type();
+  </script>
+  <script>
+  lucide.createIcons();
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>
